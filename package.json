@@ -1,15 +1,14 @@
 {
-  "name": "dive-to-jest",
-  "version": "1.0.3",
+  "name": "hsj-test-utils",
+  "version": "1.0.44",
   "description": "",
   "main": "index.js",
-  "type": "module",
-  "typings": "dist/index.d.ts",
+  "typings": "index.d.ts",
+  "sideEffects": "false",
   "files": [
-    "index.js",
-    "index.js.map",
-    "index.d.ts",
-    "index.d.ts.map"
+    "**/*.js",
+    "**/*.ts",
+    "**/*.map"
   ],
   "scripts": {
     "test": "jest",
@@ -18,7 +17,7 @@
     "dev": "webpack serve --config webpack.dev.cjs",
     "build": "npm run clean && npm run tsc && webpack --config webpack.prod.cjs",
     "analyze": "webpack --config webpack.prod.cjs --profile --json=profile/stats.json && webpack-bundle-analyzer ./profile/stats.json",
-    "publish": "npm run build && npm version patch && npm publish"
+    "deploy": "npm version patch --no-git-tag-version && npm run build && cp package.json dist && cd dist && npm publish"
   },
   "keywords": [],
   "author": "",
