@@ -35,43 +35,77 @@ $ npm install typescript -D
 - `src` 구조는 아래처럼 유지할 수 있어야 한다.
 
 ```bash
-➜  src git:(master) ✗ tree 
+➜  src git:(master) ✗ tree
 .
+├── error
+│   ├── index.ts
+│   ├── math
+│   │   └── index.ts
+│   └── string
+│       └── index.ts
 ├── index.ts
 ├── math
-│   ├── index.test.ts
+│   ├── add
+│   │   ├── index.test.ts
+│   │   └── index.ts
 │   ├── index.ts
 │   └── types.ts
 └── string
-    ├── index.test.ts
+    ├── formatDataSize
+    │   ├── index.ts
+    │   └── types.ts
     ├── index.ts
     └── types.ts
 ```
 ```bash
-dist git:(master) ✗ tree
+➜  dist git:(master) tree
 .
+├── error
+│   ├── index.d.ts
+│   ├── index.d.ts.map
+│   ├── index.js
+│   ├── index.js.map
+│   ├── math
+│   │   ├── index.d.ts
+│   │   ├── index.d.ts.map
+│   │   ├── index.js
+│   │   └── index.js.map
+│   └── string
+│       ├── index.d.ts
+│       ├── index.d.ts.map
+│       └── index.js
 ├── index.d.ts
 ├── index.d.ts.map
 ├── index.html
 ├── index.js
 ├── index.js.map
 ├── math
+│   ├── add
+│   │   ├── index.d.ts
+│   │   ├── index.d.ts.map
+│   │   ├── index.js
+│   │   ├── index.js.map
+│   │   ├── index.test.d.ts
+│   │   └── index.test.d.ts.map
 │   ├── index.d.ts
 │   ├── index.d.ts.map
 │   ├── index.js
 │   ├── index.js.map
-│   ├── index.test.d.ts
-│   ├── index.test.d.ts.map
 │   ├── types.d.ts
 │   └── types.d.ts.map
 ├── package.json
 └── string
+    ├── formatDataSize
+    │   ├── index.d.ts
+    │   ├── index.d.ts.map
+    │   ├── index.js
+    │   ├── index.js.map
+    │   ├── types.d.ts
+    │   └── types.d.ts.map
     ├── index.d.ts
     ├── index.d.ts.map
     ├── index.js
     ├── index.js.map
-    ├── index.test.d.ts
-    ├── index.test.d.ts.map
     ├── types.d.ts
     └── types.d.ts.map
 ```
