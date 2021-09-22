@@ -1,21 +1,23 @@
 const path = require('path')
+const glob = require('glob')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   target: 'web',
-  entry: {
-    index: './src/index.ts',
-    math: './src/math/index.ts',
-    string: './src/string/index.ts'
+  entry: glob.sync('./src/**/index.ts').reduce((acc, path) => {
+    const entryPath = path.replace(/^.\/src\//, '').replace(/\/index.ts$/, '')
+    acc[entryPath] = path
+    return acc
+  }, {}),
+  experiments: {
+    outputModule: true
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     library: {
-      name: 'hsj-test-utils',
-      type: 'umd',
-      export: 'default'
+      type: 'module'
     },
     filename: (pathData) => {
-      return pathData.chunk.name === 'index' ? '[name].js' : '[name]/index.js'
+      return pathData.chunk.name === 'index.ts' ? 'index.js' : '[name]/index.js'
     }
   },
   module: {

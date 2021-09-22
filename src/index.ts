@@ -1,7 +1,2 @@
-import math from './math'
-import string from './string'
-
-export default {
-  math,
-  string
-}
+export * from './math'
+export * from './string'
